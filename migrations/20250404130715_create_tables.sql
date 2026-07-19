@@ -1,17 +1,17 @@
 -- +goose Up
-CREATE TABLE Passports (
+CREATE TABLE IF NOT EXISTS Passports (
                            id SERIAL PRIMARY KEY,
                            type TEXT NOT NULL,
                            number TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE Departments (
+CREATE TABLE IF NOT EXISTS Departments (
                              id SERIAL PRIMARY KEY,
                              name TEXT NOT NULL UNIQUE,
                              phone TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE Employees (
+CREATE TABLE IF NOT EXISTS Employees (
                            id SERIAL PRIMARY KEY,
                            name TEXT NOT NULL,
                            surname TEXT NOT NULL,
@@ -22,6 +22,6 @@ CREATE TABLE Employees (
 );
 
 -- +goose Down
-DROP TABLE Employees;
-DROP TABLE Departments;
-DROP TABLE Passports;
+DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Departments;
+DROP TABLE IF EXISTS Passports;

@@ -2,8 +2,10 @@ package server
 
 import (
 	"github.com/gorilla/mux"
+	httpSwagger "github.com/swaggo/http-swagger/v2"
 	"net/http"
 	"smartway/internal/handlers"
+	"time"
 )
 
 // Создание сервера;
@@ -17,9 +19,15 @@ func Create(addr string, deps *handlers.Dependencies) *http.Server {
 	router.HandleFunc("/employees", deps.PatchEmployee).Methods("PATCH")
 	router.HandleFunc("/company/employees", deps.GetEmployeesByCompanyId).Methods("GET")
 	router.HandleFunc("/department/employees", deps.GetEmployeesByDepartmentName).Methods("GET")
+	router.HandleFunc("/health", deps.Health).Methods("GET")
+	router.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
 	return &http.Server{
-		Addr:    addr,
-		Handler: router,
+		Addr:              addr,
+		Handler:           router,
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       15 * time.Second,
+		WriteTimeout:      15 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 }

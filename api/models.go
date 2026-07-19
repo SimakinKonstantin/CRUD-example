@@ -44,3 +44,8 @@ type ErrorResponse struct {
 	Code        int    `json:"Code"`
 	Description string `json:"Description"`
 }
+
+// Модель ответа проверки состояния сервиса.
+type HealthResponse struct {
+	Status string `json:"Status"`
+}

@@ -62,7 +62,17 @@ func validatePatchEmployee(e api.Employee) error {
 	return nil
 }
 
-// Добавить сотрудника.
+// AddEmployee godoc
+// @Summary Добавить сотрудника
+// @Description Создаёт сотрудника и возвращает его идентификатор.
+// @Tags employees
+// @Accept json
+// @Produce json
+// @Param employee body api.AddPatchEmployee true "Данные сотрудника"
+// @Success 200 {object} api.AddEmployeeResponse
+// @Failure 400 {object} api.ErrorResponse
+// @Failure 422 {object} api.ErrorResponse
+// @Router /employees [post]
 func (deps *Dependencies) AddEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -109,7 +119,16 @@ func (deps *Dependencies) AddEmployee(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Удалить сотрудника.
+// DeleteEmployee godoc
+// @Summary Удалить сотрудника
+// @Description Удаляет сотрудника по идентификатору.
+// @Tags employees
+// @Produce json
+// @Param id query int true "Идентификатор сотрудника"
+// @Success 200 "Сотрудник удалён"
+// @Failure 400 {object} api.ErrorResponse
+// @Failure 404 {object} api.ErrorResponse
+// @Router /employees [delete]
 func (deps *Dependencies) DeleteEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -148,7 +167,17 @@ func (deps *Dependencies) DeleteEmployee(w http.ResponseWriter, r *http.Request)
 
 }
 
-// Получить сотрудников по id компании.
+// GetEmployeesByCompanyId godoc
+// @Summary Получить сотрудников компании
+// @Description Возвращает сотрудников по идентификатору компании.
+// @Tags employees
+// @Produce json
+// @Param id query int true "Идентификатор компании"
+// @Success 200 {array} api.Employee
+// @Success 204 "Сотрудники не найдены"
+// @Failure 400 {object} api.ErrorResponse
+// @Failure 422 {object} api.ErrorResponse
+// @Router /company/employees [get]
 func (deps *Dependencies) GetEmployeesByCompanyId(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -191,7 +220,17 @@ func (deps *Dependencies) GetEmployeesByCompanyId(w http.ResponseWriter, r *http
 	}
 }
 
-// Получить сотрудников по имени отдела.
+// GetEmployeesByDepartmentName godoc
+// @Summary Получить сотрудников отдела
+// @Description Возвращает сотрудников по названию отдела.
+// @Tags employees
+// @Produce json
+// @Param name query string true "Название отдела"
+// @Success 200 {array} api.Employee
+// @Success 204 "Сотрудники не найдены"
+// @Failure 400 {object} api.ErrorResponse
+// @Failure 422 {object} api.ErrorResponse
+// @Router /department/employees [get]
 func (deps *Dependencies) GetEmployeesByDepartmentName(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -233,7 +272,19 @@ func (deps *Dependencies) GetEmployeesByDepartmentName(w http.ResponseWriter, r 
 	}
 }
 
-// Обновить определенную информацию о сотруднике.
+// PatchEmployee godoc
+// @Summary Обновить сотрудника
+// @Description Частично обновляет сотрудника по идентификатору.
+// @Tags employees
+// @Accept json
+// @Produce json
+// @Param id query int true "Идентификатор сотрудника"
+// @Param employee body api.AddPatchEmployee true "Изменяемые поля сотрудника"
+// @Success 200 "Сотрудник обновлён"
+// @Failure 400 {object} api.ErrorResponse
+// @Failure 404 {object} api.ErrorResponse
+// @Failure 422 {object} api.ErrorResponse
+// @Router /employees [patch]
 func (deps *Dependencies) PatchEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
