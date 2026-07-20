@@ -8,8 +8,8 @@ import (
 )
 
 // Health godoc
-// @Summary Проверить состояние сервиса
-// @Description Проверяет доступность API и соединение с PostgreSQL.
+// @Summary Проверка состояния сервиса
+// @Description Проверка доступности API.
 // @Tags health
 // @Produce json
 // @Success 200 {object} api.HealthResponse

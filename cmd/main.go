@@ -24,7 +24,6 @@ import (
 // @BasePath /
 // @schemes http
 func main() {
-
 	// Подключаемся к БД.
 	dbProcessor, err := db.CreatePgxProcessor(os.Getenv("POSTGRES_CONNECT_URL"))
 	if err != nil {

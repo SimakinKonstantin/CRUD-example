@@ -244,14 +244,14 @@
         },
         "/health": {
             "get": {
-                "description": "Проверяет доступность API и соединение с PostgreSQL.",
+                "description": "Проверка доступности API.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "health"
                 ],
-                "summary": "Проверить состояние сервиса",
+                "summary": "Проверка состояния сервиса",
                 "responses": {
                     "200": {
                         "description": "OK",

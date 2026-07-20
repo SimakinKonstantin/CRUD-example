@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"smartway/api"
+
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"smartway/api"
 )
 
 // Интерфейс для работы с БД.
@@ -48,7 +49,6 @@ func (db *PgxProcessor) Ping() error {
 
 // Добавление нового сотрудника в БД.
 func (db *PgxProcessor) AddEmployee(ctx context.Context, employee api.AddPatchEmployee) (employeeId int, err error) {
-
 	// Добавление взаимодействует с 3 таблицами: Passports, Departments, Employees, поэтому используется транзакция.
 	tx, err := db.connection.Begin(ctx)
 	if err != nil {
@@ -120,7 +120,6 @@ VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;`
 
 // Удаление сотрудника по id из БД.
 func (db *PgxProcessor) DeleteEmployee(ctx context.Context, employeeId int) (err error) {
-
 	// Удаление взаимодействует с 3 таблицами: Passports, Employees, поэтому используется транзакция.
 	// В задании указано, что есть Departments, в которых может быть несколько сотрудников. Про удаление отделов не сказано,
 	// поэтому при удалении пользователей отделы не затрагиваются.

@@ -230,7 +230,7 @@ paths:
       - employees
   /health:
     get:
-      description: Проверяет доступность API и соединение с PostgreSQL.
+      description: Проверка доступности API.
       produces:
       - application/json
       responses:
@@ -242,7 +242,7 @@ paths:
           description: Service Unavailable
           schema:
             $ref: '#/definitions/api.ErrorResponse'
-      summary: Проверить состояние сервиса
+      summary: Проверка состояния сервиса
       tags:
       - health
 schemes:

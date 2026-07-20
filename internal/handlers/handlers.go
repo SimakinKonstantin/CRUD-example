@@ -154,7 +154,6 @@ func (deps *Dependencies) DeleteEmployee(w http.ResponseWriter, r *http.Request)
 		if err = addErrorInfo(w, http.StatusNotFound, errMsg); err != nil {
 			slog.Error(fmt.Sprintf("Ошибка: %s; не удалось отправить JSON с информацией об ошибке: %s", err.Error(), errMsg))
 		}
-
 	} else if err != nil {
 		errMsg := fmt.Sprintf("Ошибка удаления информации о сотруднике из БД: %s", err.Error())
 		slog.Error(errMsg)
@@ -164,7 +163,6 @@ func (deps *Dependencies) DeleteEmployee(w http.ResponseWriter, r *http.Request)
 		}
 		return
 	}
-
 }
 
 // GetEmployeesByCompanyId godoc
@@ -305,7 +303,6 @@ func (deps *Dependencies) PatchEmployee(w http.ResponseWriter, r *http.Request) 
 	if errors.Is(err, sql.ErrNoRows) {
 		w.WriteHeader(http.StatusNotFound)
 		return
-
 	} else if err != nil {
 		errMsg := fmt.Sprintf("Ошибка получения информации о сотруднике из БД: %s", err.Error())
 		slog.Error(errMsg)
