@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"employee/api"
 	"encoding/json"
 	"log/slog"
 	"net/http"
-	"smartway/api"
 )
 
 // Health godoc

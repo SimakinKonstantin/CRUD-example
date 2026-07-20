@@ -1,10 +1,10 @@
 package server
 
 import (
+	"employee/internal/handlers"
 	"github.com/gorilla/mux"
 	httpSwagger "github.com/swaggo/http-swagger/v2"
 	"net/http"
-	"smartway/internal/handlers"
 	"time"
 )
 

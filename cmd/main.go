@@ -2,17 +2,17 @@ package main
 
 import (
 	"context"
+	_ "employee/docs"
+	"employee/internal/config"
+	"employee/internal/db"
+	"employee/internal/handlers"
+	"employee/internal/server"
 	"errors"
 	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
-	_ "smartway/docs"
-	"smartway/internal/config"
-	"smartway/internal/db"
-	"smartway/internal/handlers"
-	"smartway/internal/server"
 	"syscall"
 	"time"
 )

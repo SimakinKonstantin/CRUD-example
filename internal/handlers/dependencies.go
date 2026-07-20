@@ -1,6 +1,6 @@
 package handlers
 
-import "smartway/internal/db"
+import "employee/internal/db"
 
 // Структура с зависимостями, доступ к которым есть у хендлеров.
 type Dependencies struct {

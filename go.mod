@@ -1,4 +1,4 @@
-module smartway
+module employee
 
 go 1.25
 

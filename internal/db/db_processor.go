@@ -2,11 +2,10 @@ package db
 
 import (
 	"context"
+	"employee/api"
 	"errors"
 	"fmt"
-	"smartway/api"
 
-	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

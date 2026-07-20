@@ -2,12 +2,12 @@ package handlers
 
 import (
 	"database/sql"
+	"employee/api"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"log/slog"
 	"net/http"
-	"smartway/api"
 	"strconv"
 )
 
